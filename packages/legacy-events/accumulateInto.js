@@ -39,11 +39,9 @@ function accumulateInto<T>(
   // certain that x is an Array (x could be a string with concat method).
   if (Array.isArray(current)) {
     if (Array.isArray(next)) {
-      current.push.apply(current, next);
-      return current;
+      return current.concat(next);
     }
-    current.push(next);
-    return current;
+    return [...current,next];
   }
 
   if (Array.isArray(next)) {
